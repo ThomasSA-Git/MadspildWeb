@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Madspild | Rapportér</title>
+    <title>Madspild | Tilmeld</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
@@ -13,23 +13,20 @@
     <a href="/report"><input type="button" value="Rapportér madspild"></a>
 </nav>
 
-<div class="report">
-<h2 style="text-align: center">Rapportér madspild i postnummer</h2>
-<br>
-        <form th:action="@{/report}" method="post" th:object="${report}">
-        <input class="form" name="loc-name" placeholder="Indtast navn/sted.." type="text" th:field="*{name}" required/><br>
-        <input class="form" name="address" placeholder="Indtast addresse.." type="text" th:field="*{address}" required/><br>
-        <input class="form" name="zipcode" id="zipcode" placeholder="Indtast postnummer.." type="number" value="800" min="800" max="9990" minlength="3" maxlength="4" th:field="*{zipCode}" required/><br>
-        <textarea class="form" name="comment" rows="10" placeholder="Beskrivelse.." th:field="*{description}" required></textarea><br>
-        <input class="formBtn" type="submit" value="Indsend"/>
+<div class="info">
+    <h2>Få e-mails om madspild i dit postnummer.</h2>
+<p> Hvis nogen har for meget, får du besked.</p>
+    <form th:action="@{/register}" method="post" th:object="${signup}">
+        <input class="form" type="number" name="zipcode" id="zipcode" min="800" max="9990" minlength="3" maxlength="4" placeholder="Indtast postnummer.." th:field="*{zipCode}" required /><br>
+        <input class="form" type="email" name="email" placeholder="Indtast email.." th:field="*{email}" required /><br>
+        <input class="formBtn" type="submit" value="Tilmeld"/>
         <input class="formBtn" type="reset" value="Slet"/>
     </form>
     <span th:if="${param.success}">
-        Madspild rapportéret. E-mails bliver sendt ud til alle tilmeldte i postnummeret.
+        Du er registreret.
     </span>
-    <br>
-
-</div>
+        <br><br>
+        </div>
 </body>
 <footer>
     <span class="footer-background">

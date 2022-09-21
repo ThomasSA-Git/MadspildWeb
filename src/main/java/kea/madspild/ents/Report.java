@@ -1,20 +1,26 @@
 package kea.madspild.ents;
-
 import org.springframework.format.annotation.NumberFormat;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 @Entity
+@Table(name = "reports")
 public class Report {
     @Id
     @GeneratedValue
+    @Column(name = "id")
     private Long id;
-    @NumberFormat
-    private int zipCode;
+    @Column(name = "name")
     private String name;
+    @Column(name = "address")
     private String address;
+    @NumberFormat
+    @Min(value = 800, message = "Zipcode must be greater than or equal to 800")
+    @Max(value = 9990, message = "Zipcode must be smaller than or equal to 9990")
+    @Column(name = "zipcode")
+    private int zipCode;
+    @Column(name = "description")
     private String description;
 
     public Report() {
