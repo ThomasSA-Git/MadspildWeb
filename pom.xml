@@ -109,10 +109,10 @@
                         <configuration>
                             <schemaVersion>v2</schemaVersion>
                             <subscriptionId>2ecad697-1b68-4e98-9aca-e52892732e2e</subscriptionId>
-                            <resourceGroup>CarRentalWeb-1670949475872-rg</resourceGroup>
-                            <appName>biludlejning</appName>
+                            <resourceGroup>KEA2022</resourceGroup>
+                            <appName>tester1234</appName>
                             <pricingTier>P1v2</pricingTier>
-                            <region>westeurope</region>
+                            <region>northeurope</region>
                             <runtime>
                                 <os>Windows</os>
                                 <javaVersion>Java 17</javaVersion>
